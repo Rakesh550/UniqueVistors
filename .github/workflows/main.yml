@@ -1,0 +1,29 @@
+name: PHP APP
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+
+  build:
+    name: CI/CD-PHPAPP
+    runs-on: ubuntu-latest
+    steps:
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: 22
+        script: |
+          whoami
+          cd /home/deploy/UniqueVistors
+          #sudo git clone git@github.com:Tejanarni/PHP-Practice.git
+          #sudo git reset --hard
+          sudo git pull origin main
+          sudo docker-compose up --build -d
+          #sudo docker ps
+          #sudo docker logs php-practice_web_1
