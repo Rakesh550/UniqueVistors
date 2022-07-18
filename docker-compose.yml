@@ -50,3 +50,10 @@ services:
     image: adminer:latest
     ports:
       - "8080:8080"
+  
+
+  redis:
+    image: redis
+    container_name: app_redis
+    ports:
+      - "6382:6379"
