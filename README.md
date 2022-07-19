@@ -1,7 +1,15 @@
-# PHP-Practice
+# Assignment
 
+Infrastructure used
 
-steps.
-1- Create a repo directory
-2- git clone the project
-3. use command :  docker-compose up --build -d
+- Azure VM with docker engine
+
+Steps
+
+- clone the private repo via ssh by addingdeploy key to repo
+
+-- update the secrets at for github actions (main.yml) 
+
+- access the webpage at port 8000
+
+-
