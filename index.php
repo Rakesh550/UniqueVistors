@@ -1,11 +1,33 @@
+
 <?php
 
     //Connecting to Redis server on localhost 
-	$redis = new Redis(); 
-	$redis->connect('redis', 6379); 
-	echo "Connection to redis sucessfull"; 
-	//check whether server is running or not 
-	echo "redis is running: ".$redis->ping(); 
+    try {
+        $redis = new Redis();
+        $redis->connect('redis', 6379);
+
+        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+            $client_ip_address = $_SERVER['HTTP_CLIENT_IP'];
+        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $client_ip_address = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        } else {
+            $client_ip_address = $_SERVER['REMOTE_ADDR'];
+        }
+
+        if ($redis->hExists('visitor_stats', $client_ip_address)) {
+           $my_array = $redis->hMget("visitor_stats",  array($client_ip_address));
+           $total_counts = $my_array[$client_ip_address] + 1;
+        } else {
+           $total_counts = 1;
+        }
+
+        $redis->hSet('visitor_stats', $client_ip_address, $total_counts);
+
+        echo "Welcome, your IP is " . $client_ip_address . ". You've visited this page ".  $total_counts . " times\n";
+
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
  
 
 
@@ -81,7 +103,7 @@
 <body>
 	<div class="wrapper">
 		<h1>
-			Unique Visitors count
+			Unique Visitor Count
 		</h1>
 		<h3><?php echo $total_visitors; ?></h3>
 	</div>
