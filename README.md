@@ -10,6 +10,15 @@ Install                          | Virtual Machine with Docker engine
 Terraform                        | for Infra Provisioning
  Azure Account                   | Service Priniciples - Subcription ID, Client ID, Client Secret , Tenant ID
 Visual Studio (recommended)      | VS 2019+
+
+# Tools Used
+
+1. Azure Cloud
+2. Terraform
+3. Private Git Repo
+4. GitHub Actions
+5. Redis
+6. Mysql
  
  
 ## Getting Started
