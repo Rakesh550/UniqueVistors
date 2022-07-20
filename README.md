@@ -42,5 +42,5 @@ CI/CD process has been set up to this this Application & can refer the .github/w
     
 To test the app use this public ip 51.120.245.172 in different devices.
 
-Feel free to reach me for any questions -  Thanks for this exciting assignment.
+Feel free to reach me for any questions -  Thanks for this exciting assignment
 
