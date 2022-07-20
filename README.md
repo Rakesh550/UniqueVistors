@@ -1,15 +1,43 @@
-# Assignment
+# Unique Visitors Tracking App
+ 
+## Intro
+Assignment to set up CI/CD for Unique Visitors Tracking App
+ 
+## Prerequisites
+ 
+Install                          | Virtual Machine with Docker engine   
+---------------------------------|------------
+Terraform                        | for Infra Provisioning
+ Azure Account                   | Service Priniciples - Subcription ID, Client ID, Client Secret , Tenant ID
+Visual Studio (recommended)      | VS 2019+
+ 
+ 
+## Getting Started
 
-Infrastructure used
+ 
+**Environment**  
+1.  Provision the Infra ( linux VM ) in Azure either manually or using Terraform scripts added to the repo
+2.  Install Docker Engine in VM
+ 
+**Application** 
+     # Clone source
+   1. clone the private repo via ssh by adding deploy key to repo
+   2. Update the secrets at for github actions (main.yml) - 
+        ${{ secrets.HOST }}
+        ${{ secrets.USERNAME }}
+        ${{ secrets.PASSWORD }}
+        
+   3. Import the counter.sql dump file by loging to admirer(mysql remote client) at port 8080. ( refere the mysql credentials used in index.php)
+   4. There you go!!   -   access the webpage at port 8000 - Test with multiple IPs
+ 
+## CI/CD with Github-Actions
+CI/CD process has been set up to this this Application & can refer the .github/workflows/main.yml
 
-- Azure VM with docker engine
+ 
+## Explainatory video link -  Kindly Refer below video link
+    ```
+   Coming soon
+   
+    ```
+Feel free to reach me for any questions -  Thanks for this exciting assignment
 
-Steps
-
-- clone the private repo via ssh by addingdeploy key to repo
-
--- update the secrets at for github actions (main.yml) 
-
-- access the webpage at port 8000
-
--
