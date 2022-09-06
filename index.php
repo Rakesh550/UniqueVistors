@@ -103,7 +103,7 @@
 <body>
 	<div class="wrapper">
 		<h1>
-			Unique Visitors Count
+			Unique Visitorsa Count
 		</h1>
 		<h3><?php echo $total_visitors; ?></h3>
 	</div>
